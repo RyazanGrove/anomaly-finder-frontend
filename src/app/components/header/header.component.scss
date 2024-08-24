@@ -1,0 +1,23 @@
+.header-container {
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #555555;
+}
+
+.tab.active {
+  background-color: #007bff;
+  font-weight: bold;
+}

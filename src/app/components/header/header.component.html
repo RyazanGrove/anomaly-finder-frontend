@@ -1,0 +1,6 @@
+<div class="header-container">
+  <div class="tab" [class.active]="activeTab === 'main'" (click)="setActiveTab('main')">Main</div>
+  <div class="tab" [class.active]="activeTab === 'rules'" (click)="setActiveTab('rules')">Rules</div>
+  <div class="tab" [class.active]="activeTab === 'scores'" (click)="setActiveTab('scores')">Scores</div>
+  <div class="tab" [class.active]="activeTab === 'about'" (click)="setActiveTab('about')">About</div>
+</div>
