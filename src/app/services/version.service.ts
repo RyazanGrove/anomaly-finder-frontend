@@ -13,12 +13,12 @@ export class VersionService {
 
   private http = inject(HttpClient)
 
-  getBackendVersion(): Observable<{ version: string }> {
+  getBackendVersion(): Observable<string> {
     const url = `${this.baseUrl}${this.versionEndpoint}`;
-    return this.http.get<{ version: string }>(url);
+    return this.http.get(url, {responseType: 'text'});
   }
 
   getFrontendVersion(): string {
-    return '1.0.0';
+    return environment.version;
   }
 }
