@@ -5,5 +5,6 @@ export const environment = {
     baseUrl: 'http://localhost:8080/',
     imageInfoEndpoint: 'info/',
     imageEndpoint: 'image/',
-    versionEndpoint: 'version'
+    versionEndpoint: 'version',
+    generateSequenceEndpoint: 'image/info/generate'
 };
