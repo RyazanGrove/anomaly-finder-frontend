@@ -1,1 +1,3 @@
-<p>control-panel works!</p>
+<button [disabled]="startButtonIsDisabled" (click)="startButtonPressed()">Start</button>
+<button [disabled]="!nextImageButtonIsDisabled" (click)="nextImageButtonPressed()">Next Image</button>
+<button [disabled]="!finishButtonIsDisabled" (click)="finishButtonPressed()">Finish</button>
