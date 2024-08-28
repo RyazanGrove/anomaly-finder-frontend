@@ -1,1 +1,11 @@
-<app-image></app-image>
+<app-stopwatch></app-stopwatch>
+<app-control-panel
+    (startGame)="onStartGame()"
+    (nextImage)="onNextImage()"
+    (finishGame)="onFinishGame()"
+></app-control-panel>
+<app-image
+    *ngIf="imageInfo"
+    [data]="imageInfo"
+    (targetFound)="onTargetFound()"
+></app-image>
