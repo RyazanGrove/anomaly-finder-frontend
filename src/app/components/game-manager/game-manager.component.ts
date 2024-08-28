@@ -18,9 +18,10 @@ export class GameManagerComponent implements OnInit {
   @ViewChild(StopwatchComponent) stopwatch!: StopwatchComponent;
   @ViewChild(ControlPanelComponent) controlPanel!: ControlPanelComponent;
 
-  public imageInfos! : ImageInfo[];
+  private imageInfos! : ImageInfo[];
   public imageInfo! : ImageInfo;
-  public currentImageInfo: number = 0;
+  private currentImageInfo: number = 0;
+  private score: number = 0;
 
   constructor(private imageInfoService: ImageInfoService, private cd: ChangeDetectorRef) {}
 
@@ -54,6 +55,9 @@ export class GameManagerComponent implements OnInit {
   
   onTargetFound() {
     this.stopwatch.stop();
+    this.score += 1000;
+    const scorePenalty = this.stopwatch.getTotalNumberOfSeconds() * 100;
+    this.score += scorePenalty >= 10000 ? 0 : 10000 - scorePenalty;
     this.checkExistenceOfNextImage();
   }
 
