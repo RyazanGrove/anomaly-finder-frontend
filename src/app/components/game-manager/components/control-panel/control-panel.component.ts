@@ -15,8 +15,8 @@ export class ControlPanelComponent {
   @Output() finishGame: EventEmitter<void> = new EventEmitter();
 
   startButtonIsDisabled: boolean = false;
-  nextImageButtonIsDisabled: boolean = false;
-  finishButtonIsDisabled: boolean = false;
+  nextImageButtonIsDisabled: boolean = true;
+  finishButtonIsDisabled: boolean = true;
 
   startButtonPressed() {
     this.startButtonIsDisabled = true;
@@ -25,7 +25,7 @@ export class ControlPanelComponent {
 
   nextImageButtonPressed() {
     this.nextImageButtonIsDisabled = true;
-    this.finishGame.emit();
+    this.nextImage.emit();
   }
 
   finishButtonPressed() {
