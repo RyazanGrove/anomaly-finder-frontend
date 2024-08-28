@@ -7,6 +7,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ImageService {
+  
   private baseUrl = environment.baseUrl;
   private imageEndpoint = environment.imageEndpoint;
 
@@ -16,7 +17,7 @@ export class ImageService {
     return this.http.get(imageUrl, { responseType: 'blob' });
   }
 
-  loadImage(imageId: number): Observable<string> {
+  loadImage(imageId: string): Observable<string> {
     const url = `${this.baseUrl}${this.imageEndpoint}${imageId}`;
     return this.getImageByUrl(url).pipe(
       map((blob: Blob) => URL.createObjectURL(blob))
