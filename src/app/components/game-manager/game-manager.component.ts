@@ -1,15 +1,16 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ImageComponent } from "./components/image/image.component";
 import { ImageInfoService } from '../../services/image-info.service';
 import { ImageInfo } from '../../models/image-info';
 import { CommonModule } from '@angular/common';
 import { StopwatchComponent } from "./components/stopwatch/stopwatch.component";
 import { ControlPanelComponent } from "./components/control-panel/control-panel.component";
+import { ScorePopupComponent } from './components/score-popup/score-popup.component';
 
 @Component({
   selector: 'app-game-manager',
   standalone: true,
-  imports: [CommonModule, ImageComponent, StopwatchComponent, ControlPanelComponent],
+  imports: [CommonModule, ImageComponent, StopwatchComponent, ControlPanelComponent, ScorePopupComponent],
   templateUrl: './game-manager.component.html',
   styleUrl: './game-manager.component.scss'
 })
@@ -21,9 +22,10 @@ export class GameManagerComponent implements OnInit {
   private imageInfos! : ImageInfo[];
   public imageInfo! : ImageInfo;
   private currentImageInfo: number = 0;
-  private score: number = 0;
+  score: number = 0;
+  showPopup = false;
 
-  constructor(private imageInfoService: ImageInfoService, private cd: ChangeDetectorRef) {}
+  constructor(private imageInfoService: ImageInfoService) {}
 
   ngOnInit() {
     this.imageInfoService.getGeneratedImageInfoSequence().subscribe((i: ImageInfo[])=> {
@@ -62,6 +64,14 @@ export class GameManagerComponent implements OnInit {
   }
 
   onFinishGame() {
-    // show popup and write score
+    this.openPopup()
+  }
+
+  openPopup() {
+    this.showPopup = true;
+  }
+
+  closePopup() {
+    this.showPopup = false;
   }
 }

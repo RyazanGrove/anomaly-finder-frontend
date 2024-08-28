@@ -9,3 +9,8 @@
     [data]="imageInfo"
     (targetFound)="onTargetFound()"
 ></app-image>
+
+<app-score-popup *ngIf="showPopup" 
+    [score]="score" 
+    (closePopup)="closePopup()">
+</app-score-popup>
