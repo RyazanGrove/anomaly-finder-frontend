@@ -1,0 +1,8 @@
+<div class="popup-overlay" (click)="close()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <h2>Your Score: {{ score }}</h2>
+      <input [(ngModel)]="nickname" placeholder="Enter your nickname" />
+      <button (click)="submitScore()">Submit</button>
+      <button (click)="close()">Close</button>
+    </div>
+  </div>
