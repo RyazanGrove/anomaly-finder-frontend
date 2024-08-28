@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { VersionService } from './version.service';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { lastValueFrom, of } from 'rxjs';
 
@@ -15,7 +15,6 @@ describe('VersionService', () => {
 
     TestBed.configureTestingModule({
       providers: [
-        provideHttpClient(),
         { provide: HttpClient, useValue: httpClientMock }
       ]
     });
@@ -39,6 +38,7 @@ describe('VersionService', () => {
     const functionCall = service.getBackendVersion();
 
     await expect(lastValueFrom(functionCall)).resolves.toEqual(expectedVersion);
-    expect(httpClientMock.get).toHaveBeenCalledWith("http://localhost:8080/version", {"responseType": "text"});
+    const versionUrl = environment.baseUrl + environment.versionEndpoint;
+    expect(httpClientMock.get).toHaveBeenCalledWith(versionUrl, {"responseType": "text"});
   })
 });
