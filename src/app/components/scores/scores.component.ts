@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ScoreService } from '../../services/score.service';
 import { Score } from '../../models/score';
 import { CommonModule } from '@angular/common';
+import { ScoreLineComponent } from './components/score-line/score-line.component';
 
 @Component({
   selector: 'app-scores',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScoreLineComponent],
   templateUrl: './scores.component.html',
   styleUrl: './scores.component.scss'
 })

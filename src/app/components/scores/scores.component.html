@@ -1,1 +1,3 @@
-<div *ngFor="let score of scores">{{score.nickname}} - {{score.score}}</div>
+<div *ngFor="let score of scores">
+    <app-score-line [nickname]="score.nickname" [score]="score.score"></app-score-line>
+</div>
