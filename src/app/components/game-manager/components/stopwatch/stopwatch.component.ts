@@ -49,4 +49,8 @@ export class StopwatchComponent {
       this.minutes++;
     }
   }
+
+  getTotalNumberOfSeconds(): number{
+    return this.minutes * 60 + this.seconds;
+  }
 }
