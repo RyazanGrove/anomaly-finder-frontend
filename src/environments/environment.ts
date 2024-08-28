@@ -3,8 +3,9 @@ export const environment = {
     version: '0.0.4',
     // Endpoints
     baseUrl: 'http://localhost:8080/',
-    imageInfoEndpoint: 'info/',
+    imageInfoEndpoint: 'image/info/',
     imageEndpoint: 'image/',
     versionEndpoint: 'version',
-    generateSequenceEndpoint: 'image/info/generate'
+    generateSequenceEndpoint: 'image/info/generate',
+    scoreEndpoint: 'score'
 };
