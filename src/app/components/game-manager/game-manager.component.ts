@@ -6,11 +6,19 @@ import { CommonModule } from '@angular/common';
 import { StopwatchComponent } from "./components/stopwatch/stopwatch.component";
 import { ControlPanelComponent } from "./components/control-panel/control-panel.component";
 import { ScorePopupComponent } from './components/score-popup/score-popup.component';
+import { BriefRulesComponent } from "./components/brief-rules/brief-rules.component";
 
 @Component({
   selector: 'app-game-manager',
   standalone: true,
-  imports: [CommonModule, ImageComponent, StopwatchComponent, ControlPanelComponent, ScorePopupComponent],
+  imports: [
+    CommonModule,
+    ImageComponent,
+    StopwatchComponent,
+    ControlPanelComponent,
+    ScorePopupComponent,
+    BriefRulesComponent
+  ],
   templateUrl: './game-manager.component.html',
   styleUrl: './game-manager.component.scss'
 })
@@ -21,9 +29,10 @@ export class GameManagerComponent implements OnInit {
 
   private imageInfos! : ImageInfo[];
   public imageInfo! : ImageInfo;
-  private currentImageInfo: number = 0;
-  score: number = 0;
+  private currentImageInfo = 0;
+  score = 0;
   showPopup = false;
+  gameStarted = false;
 
   constructor(private imageInfoService: ImageInfoService) {}
 
