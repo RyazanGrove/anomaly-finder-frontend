@@ -10,10 +10,10 @@ import { Component } from '@angular/core';
 })
 export class StopwatchComponent {
   
-  minutes: number = 0;
-  seconds: number = 0;
-  private intervalId: any;
-  private running: boolean = false;
+  minutes = 0;
+  seconds = 0;
+  private intervalId!: ReturnType<typeof setInterval>;
+  private running = false;
 
   start() {
     if (!this.running) {
