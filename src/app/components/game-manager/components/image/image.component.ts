@@ -13,13 +13,13 @@ import { ImageInfo } from '../../../../models/image-info';
 export class ImageComponent implements OnChanges {
 
   @Input() data!: ImageInfo;
-  @Output() targetFound: EventEmitter<void> = new EventEmitter();
+  @Output() targetFound = new EventEmitter<void>();
 
   image: string | undefined;
   clickCoords: { x: number, y: number } | null = null;
 
-  boundingRectLeft: number = 0;  
-  boundingRectTop: number = 0;  
+  boundingRectLeft = 0;  
+  boundingRectTop = 0;  
 
   constructor(private imageService: ImageService) { }
 
@@ -38,7 +38,6 @@ export class ImageComponent implements OnChanges {
     const x = event.clientX - this.boundingRectLeft;
     const y = event.clientY - this.boundingRectTop;
 
-
     this.clickCoords = {
       x: x,
       y: y
@@ -51,7 +50,7 @@ export class ImageComponent implements OnChanges {
     const target = this.data.target;
 
     if(target.xMin <= x && x <= target.xMax && target.yMin <= y && target.yMax){
-      this.targetFound.emit()
+      this.targetFound.emit();
     }
   }
 }

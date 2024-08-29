@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './rules.component.scss'
 })
 export class RulesComponent {
-  gameTitle: string = "Where's Wally?"; // Will change after find enough new images
-  wallyImageUrl: string = "assets/images/wally-reference.jpg";
+  gameTitle = "Where's Wally?"; // Will change after find enough new images
+  wallyImageUrl = "assets/images/wally-reference.jpg";
   rules: string[] = [
     "1. The objective is to find Wally in a large, detailed image filled with people, animals, and objects.",
     "2. Wally is always wearing a red and white striped shirt, a bobble hat, and glasses.",

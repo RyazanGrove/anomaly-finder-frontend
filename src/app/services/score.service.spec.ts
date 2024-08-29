@@ -51,8 +51,8 @@ describe('ScoreService', () => {
   })
 
   it('should send new score', () => {
-    const score: number = 10000;
-    const nickname: string = 'John Doe';
+    const score = 10000;
+    const nickname = 'John Doe';
     const expectedPayloadValue = {
       id: 0,
       nickname: "John Doe",

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './brief-rules.component.scss'
 })
 export class BriefRulesComponent {
-  gameTitle: string = "Where's Wally?"; // // Will change after find enough new images
-  briefRules: string = "Find Wally in the image. Wally is always wearing a red and white striped shirt, a bobble hat, and glasses. Good luck!";
-  wallyImageUrl: string = "assets/images/wally-reference.jpg";
+  gameTitle = "Where's Wally?"; // // Will change after find enough new images
+  briefRules = "Find Wally in the image. Wally is always wearing a red and white striped shirt, a bobble hat, and glasses. Good luck!";
+  wallyImageUrl = "assets/images/wally-reference.jpg";
 }

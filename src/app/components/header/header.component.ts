@@ -10,7 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  activeTab: string = 'main';
+  activeTab = 'main';
   
   constructor(private router: Router) { }
 
