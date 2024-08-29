@@ -1,1 +1,6 @@
-<p>rules works!</p>
+<div class="rules-container">
+    <h2>{{ gameTitle }} - Game Rules</h2>
+    <ul>
+      <li *ngFor="let rule of rules">{{ rule }}</li>
+    </ul>
+</div>
