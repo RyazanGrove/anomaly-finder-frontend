@@ -10,13 +10,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ControlPanelComponent {
 
-  @Output() startGame: EventEmitter<void> = new EventEmitter();
-  @Output() nextImage: EventEmitter<void> = new EventEmitter();
-  @Output() finishGame: EventEmitter<void> = new EventEmitter();
+  @Output() startGame = new EventEmitter<void>();
+  @Output() nextImage = new EventEmitter<void>();
+  @Output() finishGame = new EventEmitter<void>();
 
-  startButtonIsDisabled: boolean = false;
-  nextImageButtonIsDisabled: boolean = true;
-  finishButtonIsDisabled: boolean = true;
+  startButtonIsDisabled = false;
+  nextImageButtonIsDisabled = true;
+  finishButtonIsDisabled = true;
 
   startButtonPressed() {
     this.startButtonIsDisabled = true;
