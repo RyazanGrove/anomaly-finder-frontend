@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ScoreService } from '../../../../services/score.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-score-popup',
@@ -11,16 +12,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class ScorePopupComponent {
   @Input() score!: number;
-  nickname: string = '';
+  nickname = '';
   @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private scoreService: ScoreService) {}
+  constructor(private scoreService: ScoreService, private router: Router) {}
 
   submitScore() {
-    const payload = { score: this.score, nickname: this.nickname };
     this.scoreService.postScore(this.score, this.nickname).subscribe(
       response => {
         // redirect to scores tab
+        this.router.navigate(['/scores']);
       },
       error => {
         console.error('Error submitting score', error);
