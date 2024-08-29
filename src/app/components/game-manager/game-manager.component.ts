@@ -43,6 +43,7 @@ export class GameManagerComponent implements OnInit {
   }
 
   onStartGame() {
+    this.gameStarted = true;
     this.imageInfo = this.imageInfos[this.currentImageInfo++];
     this.stopwatch.start();
   }
