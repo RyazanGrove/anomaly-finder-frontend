@@ -1,5 +1,6 @@
 <div class="rules-container">
     <h2>{{ gameTitle }} - Game Rules</h2>
+    <img [src]="wallyImageUrl" alt="Wally Reference" class="wally-image">
     <ul>
       <li *ngFor="let rule of rules">{{ rule }}</li>
     </ul>
