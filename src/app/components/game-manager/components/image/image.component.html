@@ -3,8 +3,8 @@
     <img class="img" [src]="image" (click)="onImageClick($event)" alt="Loaded Image">
     <div 
       class="highlight-marker" 
-      *ngIf="clickCoords"
-      [style.left.px]="boundingRectLeft + clickCoords.x" 
-      [style.top.px]="boundingRectTop + clickCoords.y"
+      *ngIf="showTarget"
+      [style.left.px]="circleCenterX" 
+      [style.top.px]="circleCenterY"
     ></div>
 </div>
