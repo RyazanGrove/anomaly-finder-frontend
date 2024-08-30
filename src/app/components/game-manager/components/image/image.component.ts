@@ -18,7 +18,7 @@ export class ImageComponent implements OnChanges {
   image: string | undefined;
   circleCenterX = 0;
   circleCenterY = 0;
-  showTarget = false;
+  targetIsShown = false;
 
   constructor(private imageService: ImageService) { }
 
@@ -26,24 +26,26 @@ export class ImageComponent implements OnChanges {
     this.imageService.loadImage(this.data.fileName).subscribe(image => {
       this.image = image;
     })
-    this.showTarget = false;
+    this.targetIsShown = false;
   }
 
   onImageClick(event: MouseEvent): void {
-    const imageElement = event.target as HTMLImageElement;
-
-    const boundingRect = imageElement.getBoundingClientRect();
-    const x = event.clientX - boundingRect.left;
-    const y = event.clientY - boundingRect.top;
-
-    this.checkForFoundTarget(x,y, imageElement);
+    if(!this.targetIsShown){
+      const imageElement = event.target as HTMLImageElement;
+      
+      const boundingRect = imageElement.getBoundingClientRect();
+      const x = event.clientX - boundingRect.left;
+      const y = event.clientY - boundingRect.top;
+      
+      this.checkForFoundTarget(x,y, imageElement);
+    }
   }
 
   checkForFoundTarget(x: number, y: number, imageElement: HTMLImageElement){
     const target = this.data.target;
 
     if(target.xMin <= x && x <= target.xMax && target.yMin <= y && y <= target.yMax){
-      this.showTarget = true;
+      this.targetIsShown = true;
       
       // User can scale or move picture. Important to adjust position every time
       const imagePosition = this.getImagePosition(imageElement);
