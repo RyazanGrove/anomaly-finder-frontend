@@ -1,4 +1,14 @@
-<app-stopwatch></app-stopwatch>
+<div class="grid-container">
+    <div class="grid-item label left">Time:</div>
+    <div class="grid-item label right">Score:</div>
+    <div class="grid-item left">
+      <app-stopwatch></app-stopwatch>
+    </div>
+    <div class="grid-item right">
+      <app-score-display [score]="score"></app-score-display>
+    </div>
+</div>
+
 <app-control-panel
     (startGame)="onStartGame()"
     (nextImage)="onNextImage()"

@@ -7,6 +7,7 @@ import { StopwatchComponent } from "./components/stopwatch/stopwatch.component";
 import { ControlPanelComponent } from "./components/control-panel/control-panel.component";
 import { ScorePopupComponent } from './components/score-popup/score-popup.component';
 import { BriefRulesComponent } from "./components/brief-rules/brief-rules.component";
+import { ScoreDisplayComponent } from './components/score-display/score-display.component';
 
 @Component({
   selector: 'app-game-manager',
@@ -17,7 +18,8 @@ import { BriefRulesComponent } from "./components/brief-rules/brief-rules.compon
     StopwatchComponent,
     ControlPanelComponent,
     ScorePopupComponent,
-    BriefRulesComponent
+    BriefRulesComponent,
+    ScoreDisplayComponent
   ],
   templateUrl: './game-manager.component.html',
   styleUrl: './game-manager.component.scss'
