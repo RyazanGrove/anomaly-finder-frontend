@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-score-display',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './score-display.component.scss'
 })
 export class ScoreDisplayComponent {
+
+  @Input() score = 0;
 
 }
