@@ -39,30 +39,24 @@ export class ImageComponent implements OnChanges {
     this.checkForFoundTarget(x,y, imageElement);
   }
 
-  checkForFoundTarget(x: number, y: number, imageElement: any){
+  checkForFoundTarget(x: number, y: number, imageElement: HTMLImageElement){
     const target = this.data.target;
 
     if(target.xMin <= x && x <= target.xMax && target.yMin <= y && y <= target.yMax){
       this.showTarget = true;
       
       // User can scale or move picture. Important to adjust position every time
-      const answer = this.getImagePosition(imageElement);
-      this.circleCenterX = (target.xMin + target.xMax) / 2 + answer.x - 35; // offset x to center circle on target
-      this.circleCenterY = (target.yMin + target.yMax) / 2 + answer.y - 35; // offset y to center circle on target
+      const imagePosition = this.getImagePosition(imageElement);
+      this.circleCenterX = (target.xMin + target.xMax) / 2 + imagePosition.x - 35; // offset x to center circle on target
+      this.circleCenterY = (target.yMin + target.yMax) / 2 + imagePosition.y - 35; // offset y to center circle on target
 
       this.targetFound.emit();
     }
   }
 
-  getImagePosition(element: any) {
-    var xPosition = 0;
-    var yPosition = 0;
-
-    while(element) {
-        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
-        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-        element = element.offsetParent;
-    }
+  getImagePosition(element: HTMLImageElement) {
+    const xPosition = (element.offsetLeft - element.scrollLeft + element.clientLeft);
+    const yPosition = (element.offsetTop - element.scrollTop + element.clientTop);
 
     return { x: xPosition, y: yPosition };
   }
