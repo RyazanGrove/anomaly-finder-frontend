@@ -5,9 +5,13 @@
 
 .highlight-marker {
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     pointer-events: none;
     border: 5px solid red;
+}
+
+.image {
+    width: 1024px;
 }

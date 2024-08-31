@@ -43,14 +43,19 @@ export class ImageComponent implements OnChanges {
 
   checkForFoundTarget(x: number, y: number, imageElement: HTMLImageElement){
     const target = this.data.target;
+    // Images have different dimensions and to make them consistent they are reshaped to 1024 width
+    // Because of that the click coordinates should be changed according to the ratio 
+    const imageRatio = this.getImageRatio(this.data.imageWidth, this.data.imageHeight, imageElement);
+    x *= imageRatio.x;
+    y *= imageRatio.y;
 
     if(target.xMin <= x && x <= target.xMax && target.yMin <= y && y <= target.yMax){
       this.targetIsShown = true;
       
       // User can scale or move picture. Important to adjust position every time
       const imagePosition = this.getImagePosition(imageElement);
-      this.circleCenterX = (target.xMin + target.xMax) / 2 + imagePosition.x - 35; // offset x to center circle on target
-      this.circleCenterY = (target.yMin + target.yMax) / 2 + imagePosition.y - 35; // offset y to center circle on target
+      this.circleCenterX = (target.xMin + target.xMax) / imageRatio.x / 2 + imagePosition.x - 30; // offset x to center circle on target
+      this.circleCenterY = (target.yMin + target.yMax) / imageRatio.y / 2 + imagePosition.y - 30; // offset y to center circle on target
 
       this.targetFound.emit();
     }
@@ -61,5 +66,12 @@ export class ImageComponent implements OnChanges {
     const yPosition = (element.offsetTop - element.scrollTop + element.clientTop);
 
     return { x: xPosition, y: yPosition };
+  }
+
+  getImageRatio(imageWidthOrigin: number, imageHeightOrigin: number, imageElement: HTMLImageElement){
+    const widthRatio = imageWidthOrigin / imageElement.width;
+    const heightRatio = imageHeightOrigin / imageElement.height;
+
+    return { x: widthRatio, y: heightRatio };
   }
 }
