@@ -18,7 +18,7 @@ export class ImageService {
   }
 
   loadImage(imageId: string): Observable<string> {
-    const url = `${this.baseUrl}${this.imageEndpoint}${imageId}`;
+    const url = `${this.baseUrl}${this.imageEndpoint}/${imageId}`;
     return this.getImageByUrl(url).pipe(
       map((blob: Blob) => URL.createObjectURL(blob))
     );

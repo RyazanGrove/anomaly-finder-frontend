@@ -1,11 +1,11 @@
 export const environment = {
     production: true,
-    version: '0.1.2',
+    version: '0.2.0',
     // Endpoints
     baseUrl: 'http://localhost:8080/',
-    imageInfoEndpoint: 'image/info/',
-    imageEndpoint: 'image/',
+    imageInfoEndpoint: 'image-infos',
+    imageEndpoint: 'images',
     versionEndpoint: 'version',
-    generateSequenceEndpoint: 'image/info/generate',
-    scoreEndpoint: 'score'
+    generateSequenceEndpoint: 'image-infos/generate',
+    scoreEndpoint: 'scores'
 };
