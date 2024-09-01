@@ -41,6 +41,7 @@ export class ImageComponent implements OnChanges {
     }
   }
 
+  // This function is not tight to a specific number because it could be reused later with different widths 
   checkForFoundTarget(x: number, y: number, imageElement: HTMLImageElement){
     const target = this.data.target;
     // Images have different dimensions and to make them consistent they are reshaped to 1024 width
