@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    version: '0.2.0',
+    version: '0.2.1',
     // Endpoints
     baseUrl: 'http://localhost:8080/',
     imageInfoEndpoint: 'image-infos',
