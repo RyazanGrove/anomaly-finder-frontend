@@ -19,7 +19,7 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     this.frontendVersion = this.versionService.getFrontendVersion();
     this.versionService.getBackendVersion().subscribe(
-      response => this.backendVersion = response
+      response => this.backendVersion = response.version
     );
   }
 }

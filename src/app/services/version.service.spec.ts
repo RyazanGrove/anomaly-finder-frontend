@@ -39,6 +39,6 @@ describe('VersionService', () => {
 
     await expect(lastValueFrom(functionCall)).resolves.toEqual(expectedVersion);
     const versionUrl = environment.baseUrl + environment.versionEndpoint;
-    expect(httpClientMock.get).toHaveBeenCalledWith(versionUrl, {"responseType": "text"});
+    expect(httpClientMock.get).toHaveBeenCalledWith(versionUrl);
   })
 });
