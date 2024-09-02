@@ -39,9 +39,10 @@ export class GameManagerComponent implements OnInit {
   constructor(private imageInfoService: ImageInfoService) {}
 
   ngOnInit() {
-    this.imageInfoService.getGeneratedImageInfoSequence().subscribe((i: ImageInfo[])=> {
-      this.imageInfos = i;
-    })
+    this.imageInfoService.getGeneratedImageInfoSequence().subscribe(
+      (i: ImageInfo[])=> this.imageInfos = i,
+      error => console.log("Error fetching generated sequence", error)
+    );
   }
 
   onStartGame() {

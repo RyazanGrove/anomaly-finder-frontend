@@ -22,12 +22,8 @@ export class ScoresComponent implements OnInit {
   }
 
   loadScores(): void {
-    this.scoreService.getScores().subscribe((scores: Score[]) => {
-
-      this.scores = scores.sort((a, b) => b.score - a.score);
-    },
-    (error) => {
-      console.error('Error fetching scores', error);
-    })
+    this.scoreService.getScores().subscribe(
+      (scores: Score[]) => this.scores = scores.sort((a, b) => b.score - a.score),
+      error => console.error('Error fetching scores', error))
   }
 }

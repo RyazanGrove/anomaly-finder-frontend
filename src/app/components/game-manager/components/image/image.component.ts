@@ -23,9 +23,10 @@ export class ImageComponent implements OnChanges {
   constructor(private imageService: ImageService) { }
 
   ngOnChanges(){
-    this.imageService.loadImage(this.data.fileName).subscribe(image => {
-      this.image = image;
-    })
+    this.imageService.loadImage(this.data.fileName).subscribe(
+      image => this.image = image,
+      error => console.log("Error loading image", error)
+    );
     this.targetIsShown = false;
   }
 

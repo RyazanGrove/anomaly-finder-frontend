@@ -19,13 +19,9 @@ export class ScorePopupComponent {
 
   submitScore() {
     this.scoreService.postScore(this.score, this.nickname).subscribe(
-      response => {
-        // redirect to scores tab
-        this.router.navigate(['/scores']);
-      },
-      error => {
-        console.error('Error submitting score', error);
-      }
+      () => // redirect to scores tab
+        this.router.navigate(['/scores']),
+      error => console.error('Error submitting score', error)
     );
   }
 
