@@ -14,11 +14,21 @@ export class VersionService {
 
   private http = inject(HttpClient)
 
+  /**
+   * Gets current version of application's backend.
+   * 
+   * @returns {Observable<Version>} - An observable of the backend version.
+   */
   getBackendVersion(): Observable<Version> {
     const url = `${this.baseUrl}${this.versionEndpoint}`;
     return this.http.get<Version>(url);
   }
 
+  /**
+   * Gets current version of application's frontend.
+   * 
+   * @returns {Observable<Version>} - A string value of the frontend version.
+   */
   getFrontendVersion(): string {
     return environment.version;
   }

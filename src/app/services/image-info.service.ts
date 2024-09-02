@@ -14,6 +14,11 @@ export class ImageInfoService {
 
   private http = inject(HttpClient);
 
+  /**
+   * Gets generated sequence of image metadata for a game.
+   * 
+   * @returns {Observable<User>} - An observable of the array of image infos.
+   */
   public getGeneratedImageInfoSequence(): Observable<ImageInfo[]>{
     const url = `${this.baseUrl}${this.generateSequenceEndpoint}`;
     return this.http.get<ImageInfo[]>(url);
