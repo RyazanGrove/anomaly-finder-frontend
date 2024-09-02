@@ -1,27 +1,69 @@
-# AnomalyFinderFrontend
+# Anomaly Finder Frontend
+Frontend application for Anomaly Finder game. Provides querying and displaying sequences of images with targets as well as displaying rules and scores.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+## Related project repositories
+[Anomaly Finder Backend](https://github.com/RyazanGrove/anomaly-finder-backend)
 
-## Development server
+## Table of Contents
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Configuration](#configuration)
+- [Testing](#testing)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requirements
+* Angular CLI 18.2.1+
+* Node.js 20.17.0+
+* Project uses npm 10.8.2+
 
-## Code scaffolding
+## Installation
+Project uses Gradle to build the application.
+1. Clone the repository:
+```bash
+git clone https://github.com/RyazanGrove/anomaly-finder-frontend.git
+```
+2. Navigate to the project directory:
+```bash
+cd anomaly-finder-frontend
+```
+3. Install Angular CLI (if not installed):
+```bash
+npm install -g @angular/cli
+```
+4. Use npm to install the project dependencies:
+```bash
+npm install
+```
+5. Start the Development Server:
+```bash
+ng serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
+To start the application, use the following command. It will create a new tab in browser.
+```bash
+ng serve --open
+```
+Or you can run `ng serve` and navigate to `http://localhost:4200/`.
 
-## Build
+## Documentation
 
+
+### Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Configuration
+Configuration is done using environment files located in `src/environments`.
+Script file `set-version.js` updates version of the application from `package.json` file every time when `npm i` or `npm install` is run.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Testing
+Tests are located in `*.spec.ts` files for a related component. Tests use Jest as testing library. To run tests execute command:
+```bash
+ng test
+```
+or
+```bash
+npm run test
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
